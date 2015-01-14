@@ -1,9 +1,9 @@
 library("rgl")
-v2 <- read.table("ventil-kreis_2.txt"
+v2 <- read.table("data/ventil-kreis_2.txt"
                , skip=2
                , sep=" "
                , row.names = NULL)
-v1 <- read.table("ventil-kreis_1.txt"
+v1 <- read.table("data/ventil-kreis_1.txt"
                , skip=2
                , sep=" "
                , row.names=NULL)
