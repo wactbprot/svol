@@ -39,7 +39,7 @@ scns <- c("SCN1"
         , "SCN5"
         , "SCN6"
         , "SCN7")
-col=2
+col=1
 for (scn in scns){
     i <- which(v2[,1] == scn)
     rgl.points(v2[i, 3]

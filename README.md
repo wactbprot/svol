@@ -1,0 +1,1 @@
+Bestimmung der Ventilvolumen mittels Oberflächenmessung
