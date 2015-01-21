@@ -9,18 +9,19 @@ v1 <- read.table("data/ventil-kreis_1.txt"
                , row.names=NULL)
 rgl.close()
 rgl.open() 
+rgl.bg( sphere = FALSE
+     , color=c("white","black")
+     , back="lines")
 
-axes3d(edges = "bbox"
-     , labels = TRUE
-     , tick = TRUE
-     , nticks = 5 
-     , box = TRUE
+axes3d(box = TRUE
      , col=1
-     , xlab= "x in mm"
-     , ylab= "y in mm"
-     , zlab= "z in mm"
        )
-
+title3d(xlab= "x in mm"
+      , ylab= "y in mm"
+      , zlab= "z in mm"
+      , pos=c(10,10,0)
+      , col=1
+        )
 
 ## Ursprung
 rgl.points(0,0,0
@@ -50,5 +51,5 @@ for (scn in scns){
     col<- col+1
 }
 
-#s1 <- read.table("ventil-sitz_1.txt", skip=2, sep=" ", row.names=NULL)
-#rgl.points(s1[, 3], s1[, 4], s1[, 5], add=TRUE)
+s1 <- read.table("data/ventil-sitz_1.txt", skip=2, sep=" ", row.names=NULL)
+rgl.points(s1[, 3], s1[, 4], -s1[, 5] - 40, add=TRUE, col=1)
