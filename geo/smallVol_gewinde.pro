@@ -1,6 +1,6 @@
 Group {
-    cylin_vol   = Region[1000000];
-    inner_vol   = Region[2000000];                        
+    cylin_vol   = Region[100000];
+    inner_vol   = Region[100001];                        
     start_vol    = Region[{cylin_vol, inner_vol}] ;
 } 
 
