@@ -1,0 +1,17 @@
+Merge "sv.step";
+Physical Surface(102) = {2};
+Physical Volume(103) = {1};
+Physical Surface(104) = {46};
+Physical Surface(105) = {22};
+Physical Surface(106) = {52, 28};
+Physical Surface(107) = {45, 21};
+Physical Surface(108) = {44, 20};
+Physical Surface(109) = {43, 19};
+Physical Surface(110) = {30, 54};
+Physical Surface(111) = {23, 47};
+Physical Surface(112) = {48, 24};
+Physical Surface(113) = {51, 27};
+Physical Surface(114) = {53, 29};
+Physical Surface(115) = {46, 22};
+Physical Surface(116) = {49, 25};
+Physical Surface(117) = {50, 26};

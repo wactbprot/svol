@@ -1,7 +1,7 @@
 Group {
-    cylin_vol   = Region[1000000];
-    inner_vol   = Region[2000000];                        
-    start_vol    = Region[{cylin_vol, inner_vol}] ;
+    cylin_vol   = Region[110];
+    inner_sur   = Region[109];                        
+    start_vol    = Region[{cylin_vol, inner_sur}] ;
 } 
 
 Function {
@@ -9,8 +9,8 @@ Function {
     k[cylin_vol]=0.15                ;               // W / cm*K W-Leitfaehigkeit
     rhoc[cylin_vol]= 9.9e3/1e6 * 700 ;    // kg/cm^3 x J / kg*K Dichte x W-Kapazität
 
-    k[inner_vol]=0.15                ;               // W / cm*K W-Leitfaehigkeit
-    rhoc[inner_vol]= 7.9e3/1e6 * 700 ;    // kg/cm^3 x J / kg*K Dichte x W-Kapazität
+    k[inner_sur]=0.15                ;               // W / cm*K W-Leitfaehigkeit
+    rhoc[inner_sur]= 7.9e3/1e6 * 700 ;    // kg/cm^3 x J / kg*K Dichte x W-Kapazität
 
 
     TimeFct[] = ($Time < 10) ? 1 : 10 ;
@@ -22,7 +22,7 @@ Function {
 Constraint {
     { Name Dyn_T ; /*Type Assign;*/
         Case {
-            { Region inner_vol; Type Init; Value 300.15; TimeFunction TimeFct[];}
+            { Region inner_sur; Type Init; Value 300.15; TimeFunction TimeFct[];}
         }
         Case {
             { Region cylin_vol; Type Init; Value 296.15; }
@@ -34,8 +34,8 @@ Jacobian {
     { Name CartVol;
         Case {
             { Region  cylin_vol  ; Jacobian Vol ; }
-            { Region  inner_vol  ; Jacobian Vol ; }
-	    { Region  start_vol  ; Jacobian Vol ; }
+            { Region  inner_sur  ; Jacobian Sur ; }
+            { Region  start_vol  ; Jacobian Vol ; }
         }
     }
 }
@@ -62,7 +62,7 @@ FunctionSpace {
     { Name Hgrad_T; Type Form0;
         BasisFunction{
             { Name wn; NameOfCoef vn; Function BF_Node;
-                Support  Region[{cylin_vol, inner_vol}]; Entity NodesOf[All];}
+                Support  Region[{cylin_vol, inner_sur}]; Entity NodesOf[All];}
         }
         Constraint {
             { NameOfCoef vn; EntityType NodesOf;
